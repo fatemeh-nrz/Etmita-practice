@@ -1,14 +1,16 @@
-import React from "react";
 
-async function page({ params }: { params: Promise<{ userId: string }> }) {
-  const { userId } = await params;
-  // console.log(userId)
+'use client'
+import { useSearchParams } from 'next/navigation';
+export default function SuccessPage() {
+  const searchParams = useSearchParams();
+  const name = searchParams.get('name');
+  const email = searchParams.get('email');
+
   return (
     <div>
-      <h1>this page is for user parameter {userId}</h1>
+      <h1>Success!</h1>
+      <p>Name: {name}</p>
+      <p>Email: {email}</p>
     </div>
   );
 }
-
-export default page;
-//
